@@ -1,12 +1,10 @@
 {
-    "name": "un1matr1x/symfony5_kurs_udemy",
-	"description": "no description - just the working files from the learning",
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3de99c9b52603f9e178d37d9fee9acb7",
+    "content-hash": "150e709eb086edc9973e549149ce588f",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
