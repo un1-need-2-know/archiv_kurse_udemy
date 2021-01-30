@@ -15,4 +15,12 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    /**
+     * @Route("/start", name="start")
+     */
+    public function start(){
+        return new Response('<h1>Willkommen</h1>');
+    }
+
 }
