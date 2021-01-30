@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -17,10 +18,10 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/start", name="start")
+     * @Route("/start/{name?}", name="start")
      */
-    public function start(){
-        return new Response('<h1>Willkommen</h1>');
+    public function start(Request $request, $name){
+        return new Response('<h1>Willkommen '.$name.'</h1>');
     }
 
 }
