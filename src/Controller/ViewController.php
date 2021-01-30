@@ -11,8 +11,10 @@ class ViewController extends AbstractController
     #[Route('/view', name: 'view')]
     public function index(): Response
     {
+        $tag = date("l");
+
         return $this->render('view/index.html.twig', [
-            'controller_name' => 'ViewController',
+            'd' => $tag,
         ]);
     }
 }
