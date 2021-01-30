@@ -1,4 +1,6 @@
 {
+    "name": "un1matr1x/symfony5_kurs_udemy",
+	"description": "no description - just the working files from the learning",
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
