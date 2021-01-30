@@ -21,7 +21,8 @@ class MainController extends AbstractController
      * @Route("/start/{name?}", name="start")
      */
     public function start(Request $request, $name){
-        return new Response('<h1>Willkommen '.$name.'</h1>');
+        $nr = random_int(0,100);
+        return new Response('<h1>Willkommen '.$name.'</h1><br>deine Wartenummer ist '.$nr);
     }
 
 }
