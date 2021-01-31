@@ -13,8 +13,15 @@ class ViewController extends AbstractController
     {
         $tag = date("l");
 
+        $user = [
+            'name' => 'möp',
+            'nachname' => 'se',
+            'alter' => '1001',
+        ];
+
         return $this->render('view/index.html.twig', [
             'd' => $tag,
+            'user' => $user,
         ]);
     }
 }
