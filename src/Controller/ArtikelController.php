@@ -24,6 +24,9 @@ class ArtikelController extends AbstractController
             'id' =>1,
         ]);
 
+        $emt->remove($getArtikel);
+        $emt->flush();
+
         //return new Response("Artikel wurde angelegt");
 
        return $this->render('artikel/index.html.twig', [
