@@ -17,14 +17,18 @@ class ArtikelController extends AbstractController
         $artikel->setTitel('Unser erster Artikel');
 
         $emt = $this->getDoctrine()->getManager();
-        $emt->persist($artikel);
-        $emt->flush();
+        //$emt->persist($artikel);
+        //$emt->flush();
 
-        return new Response("Artikel wurde angelegt");
-
-    /*   return $this->render('artikel/index.html.twig', [
-            'controller_name' => 'ArtikelController',
+        $getArtikel = $emt->getRepository(Artikel::class)->findOneBy([
+            'id' =>1,
         ]);
-    */
+
+        //return new Response("Artikel wurde angelegt");
+
+       return $this->render('artikel/index.html.twig', [
+            'artikel' => $getArtikel,
+        ]);
+    
     }
 }
