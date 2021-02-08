@@ -19,7 +19,7 @@ class ViewController extends AbstractController
             'alter' => '1001',
         ];
 
-        $array = array("test1","test2",$tag,'3');
+        $array = array("test1", "test2", $tag, '3');
 
         return $this->render('view/index.html.twig', [
             'd' => $tag,

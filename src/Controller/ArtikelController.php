@@ -29,7 +29,7 @@ class ArtikelController extends AbstractController
 
         //return new Response("Artikel wurde angelegt");
 
-       return $this->render('artikel/index.html.twig', [
+        return $this->render('artikel/index.html.twig', [
             'artikel' => $getArtikel,
         ]);
     
