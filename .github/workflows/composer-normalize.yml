@@ -1,2 +1,20 @@
-- name: composer-normalize-action
-  uses: ergebnis/composer-normalize-action@0.8.0
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+name: "composer-normalize"
+
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - "main"
+    tags:
+      - "**"
+
+jobs:
+  build:
+    name: "composer-normalize"
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: composer-normalize-action
+        uses: ergebnis/composer-normalize-action@0.8.0
