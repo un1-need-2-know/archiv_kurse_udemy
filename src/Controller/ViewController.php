@@ -11,20 +11,20 @@ class ViewController extends AbstractController
     #[Route('/view', name: 'view')]
     public function index(): Response
     {
-        $tag = date("l");
+        $tag = date('l');
 
         $user = [
-            'name' => 'möp',
+            'name'     => 'möp',
             'nachname' => 'se',
-            'alter' => '1001',
+            'alter'    => '1001',
         ];
 
-        $array = array("test1", "test2", $tag, '3');
+        $array = ['test1', 'test2', $tag, '3'];
 
         return $this->render('view/index.html.twig', [
-            'd' => $tag,
+            'd'    => $tag,
             'user' => $user,
-            'a' => $array,
+            'a'    => $array,
         ]);
     }
 }
