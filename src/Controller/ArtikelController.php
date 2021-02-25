@@ -21,7 +21,7 @@ class ArtikelController extends AbstractController
         //$emt->flush();
 
         $getArtikel = $emt->getRepository(Artikel::class)->findOneBy([
-            'id' =>1,
+            'id' => 1,
         ]);
 
         $emt->remove($getArtikel);
@@ -32,6 +32,5 @@ class ArtikelController extends AbstractController
         return $this->render('artikel/index.html.twig', [
             'artikel' => $getArtikel,
         ]);
-    
     }
 }

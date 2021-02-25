@@ -20,9 +20,10 @@ class MainController extends AbstractController
     /**
      * @Route("/start/{name?}", name="start")
      */
-    public function start(Request $request, $name) {
+    public function start(Request $request, $name)
+    {
         $number = random_int(0, 100);
+
         return new Response('<h1>Willkommen '.$name.'</h1><br>deine Wartenummer ist '.$number);
     }
-
 }
