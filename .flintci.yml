@@ -1,3 +1,69 @@
-services:
+services:       # Required
   composernormalize:
     version:        latest
+  eslint:
+    version:        latest
+    config_path:      ~
+    paths:
+
+      # Default:
+      - .
+  phpcbf:
+    version:        latest
+    config_path:      ~
+    paths:        []
+
+    # Should the composer dependencies be installed before?
+    composer:       false
+  phpcsfixer:
+    version:        latest
+    config_path:      ~
+  phpcs:
+    version:        latest
+    config_path:      ~
+    paths:        []
+
+    # Should the composer dependencies be installed before?
+    composer:       false
+  pycodestyle:
+    version:        latest
+    config_path:      ~
+    path:         .
+  rubocop:
+    version:        latest
+    config_path:      ~
+    paths:
+
+      # Default:
+      - .
+  shellcheck:
+    version:        latest
+    path:         .
+    config:
+
+      # Specify dialect.
+      shell:        null # One of "sh"; "bash"; "dash"; "ksh"
+
+      # Exclude types of warnings.
+      exclude:
+
+        # Examples:
+        - CODE1
+        - CODE2
+  xmllint:
+    version:        latest
+    path:         .
+    config:
+
+      # Corresponds to the XMLLINT_INDENT environment variable.
+      indent:         4
+
+      # Corresponds to the --encode cli option.
+      encode:         null
+  yamllint:
+    version:        latest
+    config_path:      ~
+    paths:
+
+      # Default:
+      - .
