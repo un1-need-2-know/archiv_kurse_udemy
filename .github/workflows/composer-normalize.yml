@@ -12,5 +12,12 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2"
 
+      - name: "Set up PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          php-version: "7.2"
+          tools: "composer-normalize"
+          
       - name: "Run composer normalize"
-        uses: "docker://ergebnis/composer-normalize-action:latest"
+        uses: "composer-normalize --dry-run"
