@@ -18,21 +18,17 @@ class Artikel
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column (type="string", length=255)
+     *
+     * @var string
      */
-    private $titel;
+    private string $titel;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
-    public function getTitel(): ?string
-    {
-        return $this->titel;
-    }
 
-    public function setTitel(string $titel): self
+
+
+    public function setTitel(string $titel): static
     {
         $this->titel = $titel;
 

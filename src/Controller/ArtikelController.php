@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArtikelController extends AbstractController
 {
     #[Route('/artikel', name: 'artikel')]
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         $artikel = new Artikel();
         $artikel->setTitel('Unser erster Artikel');
