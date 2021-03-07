@@ -1,10 +1,8 @@
 {
     "name": "un1matr1x/symfony5_kurs_udemy",
-	"description": "no description - just the working files from the learning",
     "type": "project",
+    "description": "no description - just the working files from the learning",
     "license": "proprietary",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": ">=7.2.5",
         "ext-ctype": "*",
@@ -21,8 +19,21 @@
         "symfony/proxy-manager-bridge": "5.2.*",
         "symfony/twig-bundle": "5.2.*",
         "symfony/yaml": "5.2.*",
-        "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/extra-bundle": "^2.12 || ^3.0",
+        "twig/twig": "^2.12 || ^3.0"
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.13",
+        "psalm/plugin-symfony": "^2.2",
+        "weirdan/doctrine-psalm-plugin": "^1.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -30,6 +41,12 @@
             "*": "dist"
         },
         "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.2.*"
+        }
     },
     "autoload": {
         "psr-4": {
@@ -41,35 +58,18 @@
             "App\\Tests\\": "tests/"
         }
     },
-    "replace": {
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*"
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
         "post-install-cmd": [
             "@auto-scripts"
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "5.2.*"
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         }
-    },
-    "require-dev": {
-        "ergebnis/composer-normalize": "^2.13",
-        "psalm/plugin-symfony": "^2.2",
-        "weirdan/doctrine-psalm-plugin": "^1.0"
     }
 }
