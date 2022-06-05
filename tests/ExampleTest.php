@@ -1,5 +1,6 @@
 <?php
 
-class ExampleTest {
-    
+class ExampleTest extends \PHPUnit\Framework\TestCase 
+{
+
 }
