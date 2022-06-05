@@ -6,6 +6,6 @@ class ExampleTest extends TestCase
 {
     public function testAddingOnePlusTwoResultIsThree()
     {
-        # code...
+        $this->assertEquals(3, 1+2);
     }
 }
