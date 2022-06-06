@@ -9,5 +9,6 @@ class FunctionTest extends TestCase
         require 'functions.php';
 
         $this->assertEquals(3, addition(1, 2));
+        $this->assertEquals(5, addition(3, 2));
     }
 }
