@@ -8,7 +8,7 @@ class UserTest extends TestCase
     {
         require_once 'User.php';
 
-        $user = new User;
+        $user = new User();
 
         $user->first_name = 'Hans';
         $user->name = 'Wurst';
@@ -20,7 +20,7 @@ class UserTest extends TestCase
     {
         require_once 'User.php';
 
-        $user = new User;
+        $user = new User();
 
         $this->assertEquals('', $user->getFullName());
     }
