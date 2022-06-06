@@ -1,5 +1,6 @@
 <?php
 
-function addition($numOne, $numTwo) {
+function addition($numOne, $numTwo)
+{
     return $numOne + $numTwo;
 }
