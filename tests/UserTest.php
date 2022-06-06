@@ -15,4 +15,13 @@ class UserTest extends TestCase
 
         $this->assertEquals('Hans Wurst', $user->getFullName());
     }
+
+    public function testFullNameisEmptyByDefault()
+    {
+        require_once 'User.php';
+
+        $user = new User;
+
+        $this->assertEquals('', $user->getFullName());
+    }
 }
