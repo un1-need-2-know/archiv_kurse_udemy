@@ -8,7 +8,7 @@ class User
 
     public function getFullName()
     {
-        return $this->first_name . ' ' . $this->name;
+        return trim($this->first_name . ' ' . $this->name);
     }
 
 }
