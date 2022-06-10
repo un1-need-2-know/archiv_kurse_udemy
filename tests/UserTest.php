@@ -24,4 +24,15 @@ class UserTest extends TestCase
 
         $this->assertEquals('', $user->getFullName());
     }
+
+    public function firstNameIsOnlySet()
+    {
+        require_once 'User.php';
+
+        $user = new User();
+
+        $user->first_name = 'Hans';
+
+        $this->assertEquals('Hans', $user->getFullName());
+    }
 }
