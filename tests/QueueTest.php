@@ -11,9 +11,19 @@ class QueueTest extends TestCase
         $this->queue = new Queue();
     }
 
+    public static function setUpBeforeClass(): void
+    {
+        #code ...
+    }
+
     protected function tearDown(): void
     {
         unset($this->queue);
+    }
+
+    public static function tearDownBeforeClass(): void
+    {
+        #code ...        
     }
 
     public function testNewQueueIsEmpty()
