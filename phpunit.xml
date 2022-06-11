@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true">
+<phpunit colors="true"
+         verbose="true">
     <testsuite name="Any Name">
         <directory>tests</directory>
     </testsuite>
