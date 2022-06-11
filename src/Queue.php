@@ -9,8 +9,7 @@ class Queue
     public function push($item)
     {
         if ($this->getCount() == static::MAX_ITEMS) {
-
-            throw new QueueExeption("Queue is full");
+            throw new QueueExeption('Queue is full');
         }
 
         $this->items[] = $item;

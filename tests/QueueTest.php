@@ -61,7 +61,6 @@ class QueueTest extends TestCase
             static::$queue->push($i);
         }
         $this->assertEquals(Queue::MAX_ITEMS, static::$queue->getCount());
-
     }
 
     public function testMaxNumberPlusOneOfItemsCanBeAdded()
@@ -71,7 +70,7 @@ class QueueTest extends TestCase
         }
 
         $this->expectException(QueueExeption::class);
-        $this->expectExceptionMessage("Queue is full");
+        $this->expectExceptionMessage('Queue is full');
 
         static::$queue->push('penis');
     }
