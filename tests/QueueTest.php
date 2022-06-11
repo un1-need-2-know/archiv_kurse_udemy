@@ -28,30 +28,30 @@ class QueueTest extends TestCase
 
     public function testNewQueueIsEmpty()
     {
-        $this->assertEquals(0, $this->queue->getCount());
+        $this->assertEquals(0, static::$queue->getCount());
     }
 
     public function testItemIsAdded2Queue()
     {
-        $this->queue->push('penis');
+        static::$queue->push('penis');
 
-        $this->assertEquals(1, $this->queue->getCount());
+        $this->assertEquals(1, static::$queue->getCount());
     }
 
     public function testItemIsRemovedFromQueue()
     {
-        $this->queue->push('penis');
-        $item = $this->queue->pop();
+        static::$queue->push('penis');
+        $item = static::$queue->pop();
 
-        $this->assertEquals(0, $this->queue->getCount());
+        $this->assertEquals(0, static::$queue->getCount());
         $this->assertEquals('penis', $item);
     }
 
     public function testAnItemIsRemovedFromTheStartOfQueue()
     {
-        $this->queue->push('penis');
-        $this->queue->push('boobs');
+        static::$queue->push('penis');
+        static::$queue->push('boobs');
 
-        $this->assertEquals('penis', $this->queue->pop());
+        $this->assertEquals('penis', static::$queue->pop());
     }
 }
