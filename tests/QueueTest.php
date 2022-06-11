@@ -4,26 +4,26 @@ use PHPUnit\Framework\TestCase;
 
 class QueueTest extends TestCase
 {
-    protected $queue;
+    protected static $queue;
 
     protected function setUp(): void
     {
-        $this->queue = new Queue();
+        //$this->queue = new Queue();
     }
 
     public static function setUpBeforeClass(): void
     {
-        #code ...
+        static::$queue = new Queue();
     }
 
     protected function tearDown(): void
     {
-        unset($this->queue);
+        //unset($this->queue);
     }
 
     public static function tearDownBeforeClass(): void
     {
-        #code ...        
+        static::$queue = null;
     }
 
     public function testNewQueueIsEmpty()
