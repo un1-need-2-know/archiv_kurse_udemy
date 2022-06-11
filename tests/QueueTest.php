@@ -71,7 +71,8 @@ class QueueTest extends TestCase
         }
 
         $this->expectException(QueueExeption::class);
-        
+        $this->expectExceptionMessage("Queue is full");
+
         static::$queue->push('penis');
     }
 }
