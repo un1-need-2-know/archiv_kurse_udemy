@@ -69,6 +69,9 @@ class QueueTest extends TestCase
         for ($i = 0; $i < Queue::MAX_ITEMS; $i++) {
             static::$queue->push($i);
         }
+
+        $this->expectException(QueueExeption::class);
+        
         static::$queue->push('penis');
     }
 }
