@@ -6,14 +6,14 @@ class QueueTest extends TestCase
 {
     public function testNewQueueIsEmpty()
     {
-        $queue = new Queue;
+        $queue = new Queue();
 
         $this->assertEquals(0, $queue->getCount());
     }
 
     public function testItemIsAdded2Queue()
     {
-        $queue = new Queue;
+        $queue = new Queue();
 
         $queue->push('penis');
 
@@ -22,7 +22,7 @@ class QueueTest extends TestCase
 
     public function testItemIsRemovedFromQueue()
     {
-        $queue = new Queue;
+        $queue = new Queue();
 
         $queue->push('penis');
 
@@ -31,5 +31,4 @@ class QueueTest extends TestCase
         $this->assertEquals(0, $queue->getCount());
         $this->assertEquals('penis', $item);
     }
-
 }
