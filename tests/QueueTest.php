@@ -4,13 +4,17 @@ use PHPUnit\Framework\TestCase;
 
 class QueueTest extends TestCase
 {
+    protected $queue;
+
+    protected function setUp(): void
+    {
+        $this->queue = new Queue();
+    }
+
     public function testNewQueueIsEmpty()
     {
-        $queue = new Queue();
+        $this->assertEquals(0, $this->queue->getCount());
 
-        $this->assertEquals(0, $queue->getCount());
-
-        return $queue;
     }
 
     /**
