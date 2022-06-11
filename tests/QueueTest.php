@@ -23,14 +23,12 @@ class QueueTest extends TestCase
         $this->assertEquals(1, $this->queue->getCount());
     }
 
-    /**
-     * @depends testItemIsAdded2Queue
-     */
-    public function testItemIsRemovedFromQueue(Queue $queue)
+    public function testItemIsRemovedFromQueue()
     {
-        $item = $queue->pop();
+        $this->queue->push('penis');
+        $item = $this->queue->pop();
 
-        $this->assertEquals(0, $queue->getCount());
+        $this->assertEquals(0, $this->queue->getCount());
         $this->assertEquals('penis', $item);
     }
 }
