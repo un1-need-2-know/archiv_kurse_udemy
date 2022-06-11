@@ -63,4 +63,12 @@ class QueueTest extends TestCase
         $this->assertEquals(Queue::MAX_ITEMS, static::$queue->getCount());
 
     }
+
+    public function testMaxNumberPlusOneOfItemsCanBeAdded()
+    {
+        for ($i = 0; $i < Queue::MAX_ITEMS; $i++) {
+            static::$queue->push($i);
+        }
+        static::$queue->push('penis');
+    }
 }
