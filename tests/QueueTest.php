@@ -11,6 +11,11 @@ class QueueTest extends TestCase
         $this->queue = new Queue();
     }
 
+    protected function tearDown(): void
+    {
+        unset($this->queue);
+    }
+
     public function testNewQueueIsEmpty()
     {
         $this->assertEquals(0, $this->queue->getCount());
