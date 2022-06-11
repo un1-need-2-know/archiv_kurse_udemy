@@ -8,7 +8,7 @@ class QueueTest extends TestCase
 
     protected function setUp(): void
     {
-        //$this->queue = new Queue();
+        static::$queue->clear();
     }
 
     public static function setUpBeforeClass(): void
