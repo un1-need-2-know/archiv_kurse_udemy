@@ -6,8 +6,6 @@ class UserTest extends TestCase
 {
     public function testReturnsFullName()
     {
-        require_once 'User.php';
-
         $user = new User();
 
         $user->first_name = 'Hans';
@@ -18,8 +16,6 @@ class UserTest extends TestCase
 
     public function testFullNameisEmptyByDefault()
     {
-        require_once 'User.php';
-
         $user = new User();
 
         $this->assertEquals('', $user->getFullName());
@@ -30,8 +26,6 @@ class UserTest extends TestCase
      */
     public function first_name_is_only_set()
     {
-        require_once 'User.php';
-
         $user = new User();
 
         $user->first_name = 'Hans';
