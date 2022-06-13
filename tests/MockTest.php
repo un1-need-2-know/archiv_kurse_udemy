@@ -6,8 +6,8 @@ class MockTest extends TestCase
 {
     public function testMock()
     {
-        $mailer = new Mailer();
+        $mock = $this->createMock(Mailer::class);
 
-        $this->assertTrue($mailer->sendMessage('penis@pump.it.up','Hello Big Boy'));
+        $this->assertNull($mock->sendMessage('penis@pump.it.up','Hello Big Boy'));
     }
 }
