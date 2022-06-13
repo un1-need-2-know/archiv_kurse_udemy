@@ -10,6 +10,6 @@ class MockTest extends TestCase
 
         $mock->method('sendMessage')->willReturn(true);
 
-        $this->assertTrue($mock->sendMessage('penis@pump.it.up','Hello Big Boy'));
+        $this->assertTrue($mock->sendMessage('penis@pump.it.up', 'Hello Big Boy'));
     }
 }
