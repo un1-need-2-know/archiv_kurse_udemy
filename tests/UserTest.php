@@ -38,6 +38,7 @@ class UserTest extends TestCase
         $user = new User();
 
         $user->email = "penis@pump.it.up";
+        $user->setMailer(new Mailer);
         
         $mock_mailer = $this->createMock(Mailer::class);
         $mock_mailer->method('sendMessage')->willReturn(true);
