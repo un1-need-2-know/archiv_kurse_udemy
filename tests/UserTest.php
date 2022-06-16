@@ -64,5 +64,4 @@ class UserTest extends TestCase
 
         $user->notify('Boobs');
     }
-
 }
