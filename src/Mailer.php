@@ -4,8 +4,7 @@ class Mailer
 {
     public function sendMessage($email, $message)
     {
-        if (empty($email))
-        {
+        if (empty($email)) {
             throw new Exception();
         }
 
