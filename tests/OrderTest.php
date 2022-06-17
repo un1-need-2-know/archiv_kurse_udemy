@@ -16,9 +16,9 @@ class OrderTest extends TestCase
                 ->willReturn(true);
 
         $order = new Order($gateway);
-    
+
         $order->amount = 200;
-    
+
         $this->assertTrue($order->process());
     }
 }
