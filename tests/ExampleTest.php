@@ -1,14 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use Mockery\Adapter\Phpunit\MockeryTestCase;
 
-class ExampleTest extends TestCase
+class ExampleTest extends MockeryTestCase
 {
-    public function tearDown(): void
-    {
-        Mockery::close();
-    }
-
     public function testAddingOnePlusTwoResultIsThree()
     {
         $this->assertEquals(3, 1 + 2);
