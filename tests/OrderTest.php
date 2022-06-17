@@ -6,7 +6,8 @@ class OrderTest extends TestCase
 {
     public function testOrderIsProcessed()
     {
-        $gateway = $this->createMock('PaymentGateway');
+        $gateway = $this->getMockBuilder('PaymentGateway')
+                        ->getMock();
 
         $order = new Order($gateway);
     
