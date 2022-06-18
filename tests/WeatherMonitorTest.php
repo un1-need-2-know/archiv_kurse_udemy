@@ -15,7 +15,7 @@ class WeatherMonitorTest extends TestCase
 
         $map = [
             ['00:00', 0],
-            ['12:00', 84]
+            ['12:00', 84],
         ];
 
         $service->expects($this->exactly(2))
@@ -24,7 +24,7 @@ class WeatherMonitorTest extends TestCase
 
         $weather = new WeatherMonitor($service);
 
-        $this->assertEquals(42, $weather->getAverageTemperature('00:00', '12:00'));        
+        $this->assertEquals(42, $weather->getAverageTemperature('00:00', '12:00'));
     }
 
     public function testCorrectAverageIsReturnedByMockery()
@@ -36,6 +36,6 @@ class WeatherMonitorTest extends TestCase
 
         $weather = new WeatherMonitor($service);
 
-        $this->assertEquals(42, $weather->getAverageTemperature('00:00', '12:00'));        
+        $this->assertEquals(42, $weather->getAverageTemperature('00:00', '12:00'));
     }
 }
