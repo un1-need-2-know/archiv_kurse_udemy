@@ -26,4 +26,16 @@ class WeatherMonitorTest extends TestCase
 
         $this->assertEquals(42, $weather->getAverageTemperature('00:00', '12:00'));        
     }
+
+    public function testCorrectAverageIsReturnedByMockery()
+    {
+        $service = Mockery::mock(TemperatureService::class);
+
+        $service->shouldReceive('getTemperature')->once()->with('00:00')->andReturn(0);
+        $service->shouldReceive('getTemperature')->once()->with('12:00')->andReturn(84);
+
+        $weather = new WeatherMonitor($service);
+
+        $this->assertEquals(42, $weather->getAverageTemperature('00:00', '12:00'));        
+    }
 }
