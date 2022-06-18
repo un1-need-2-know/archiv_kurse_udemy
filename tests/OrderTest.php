@@ -29,10 +29,9 @@ class OrderTest extends TestCase
         $this->assertEquals(0.75, $order->amount);
 
         $gateway_spy = Mockery::spy('PaymentGateway');
-        
+
         $order->process($gateway_spy);
 
         $gateway_spy->shouldHaveReceived('charge')->once()->with(0.75);
     }
-
 }
