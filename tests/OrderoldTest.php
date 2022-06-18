@@ -20,7 +20,7 @@ class OrderTest extends TestCase
                 ->with($this->equalTo(200))
                 ->willReturn(true);
 
-        $order = new Order($gateway);
+        $order = new Orderold($gateway);
 
         $order->amount = 200;
 
@@ -36,7 +36,7 @@ class OrderTest extends TestCase
                 ->with(200)
                 ->andReturn(true);
 
-        $order = new Order($gateway);
+        $order = new Orderold($gateway);
 
         $order->amount = 200;
 
