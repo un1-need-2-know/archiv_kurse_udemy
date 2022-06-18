@@ -11,7 +11,6 @@ class OrderTest extends TestCase
 
     public function testOrderIsProcessedUsingAMock()
     {
-
         $order = new Order(5, 0.15);
 
         $this->assertEquals(0.75, $order->amount);
@@ -22,5 +21,4 @@ class OrderTest extends TestCase
 
         $order->process($gateway_mock);
     }
-
 }
