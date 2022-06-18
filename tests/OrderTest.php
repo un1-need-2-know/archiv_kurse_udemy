@@ -11,7 +11,6 @@ class OrderTest extends TestCase
 
     public function testOrderIsProcessedUsingAMock()
     {
-
         $order = new Order(5, 0.15);
 
         $this->assertEquals(0.75, $order->amount);
@@ -21,6 +20,19 @@ class OrderTest extends TestCase
         $gateway_mock->shouldReceive('charge')->once()->with(0.75);
 
         $order->process($gateway_mock);
+    }
+
+    public function testOrderIsProcessedUsingASpy()
+    {
+        $order = new Order(5, 0.15);
+
+        $this->assertEquals(0.75, $order->amount);
+
+        $gateway_spy = Mockery::spy('PaymentGateway');
+        
+        $order->process($gateway_spy);
+
+        $gateway_spy->shouldHaveReceived('charge')->once()->with(0.75);
     }
 
 }
