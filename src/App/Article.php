@@ -4,5 +4,10 @@ namespace App;
 
 class Article
 {
-    public $title;
+    private $title;
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }
