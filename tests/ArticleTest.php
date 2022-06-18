@@ -8,6 +8,6 @@ class ArticleTest extends TestCase
     {
         $article = new App\Article;
 
-        $this->assertEmpty($article->title);
+        $this->assertEmpty($article->getTitle());
     }
 }
