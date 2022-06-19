@@ -15,6 +15,6 @@ class ArticleTest extends TestCase
     {
         $article = new App\Article();
 
-        $this->assertEquals($article->getSlug(), '');
+        $this->assertSame($article->getSlug(), '');
     }
 }
