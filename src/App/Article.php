@@ -20,7 +20,7 @@ class Article
     {
         $slug = $this->title;
 
-        $slug = preg_replace('/\s/', '_', $slug);
+        $slug = preg_replace('/\s+/', '_', $slug);
 
         return $slug;
     }
