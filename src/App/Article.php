@@ -10,4 +10,9 @@ class Article
     {
         return $this->title;
     }
+
+    public function getSlug()
+    {
+
+    }
 }
