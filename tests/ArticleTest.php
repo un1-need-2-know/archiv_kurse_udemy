@@ -34,4 +34,11 @@ class ArticleTest extends TestCase
 
         $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
     }
+
+    public function testSlugDoesNotStrartOrEndWithAnUnderscore()
+    {
+        $this->article->setTitle("  Graf  Prono   blaest    zum \n Zapfenstreich  ");
+
+        $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
+    }
 }
