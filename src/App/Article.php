@@ -13,6 +13,6 @@ class Article
 
     public function getSlug()
     {
-
+        return '';
     }
 }
