@@ -11,8 +11,17 @@ class Article
         return $this->title;
     }
 
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
     public function getSlug()
     {
-        return '';
+        $slug = $this->title;
+
+        $slug = str_replace(' ', '_', $slug);
+
+        return $slug;
     }
 }
