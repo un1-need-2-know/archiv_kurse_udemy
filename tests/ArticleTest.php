@@ -10,4 +10,11 @@ class ArticleTest extends TestCase
 
         $this->assertEmpty($article->getTitle());
     }
+
+    public function testSlugIsEmptyWithNoTitle()
+    {
+        $article = new App\Article();
+
+        $this->assertEquals($article->getSlug(), '');
+    }
 }
