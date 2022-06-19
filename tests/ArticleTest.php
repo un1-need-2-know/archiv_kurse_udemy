@@ -8,7 +8,7 @@ class ArticleTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->article = new App\Article;
+        $this->article = new App\Article();
     }
 
     public function testTitleIsEmptyByDefault()
