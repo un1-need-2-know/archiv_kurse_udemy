@@ -4,7 +4,7 @@ class Item
 {
     public function getDescription()
     {
-        return $this->getID() . $this->getToken();
+        return $this->getID().$this->getToken();
     }
 
     protected function getID()
