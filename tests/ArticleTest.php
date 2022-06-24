@@ -21,31 +21,23 @@ class ArticleTest extends TestCase
         $this->assertSame($this->article->getSlug(), '');
     }
 
-    public function testInSlugSpacesAreReplacedWithUnderscores()
+    public function titleProvider()
     {
-        $this->article->setTitle('Graf Prono blaest zum Zapfenstreich');
-
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
+        return [
+            'Replace Spaces with Underscores'                  => ['Graf Prono blaest zum Zapfenstreich', 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            'Replace multiple Spaces with only one Underscore' => ["Graf  Prono   blaest    zum \n Zapfenstreich", 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            'Remove Underscore @ the start/end'                => ["  Graf  Prono   blaest    zum \n Zapfenstreich  ", 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            'Remove non word characters'                       => ['Graf Prono? Blaest zum Zapfenstreich!', 'Graf_Prono_Blaest_zum_Zapfenstreich'],
+        ];
     }
 
-    public function testInSlugSpacesAreReplacedWithSingleUnderscores()
+    /**
+     * @dataProvider titleProvider
+     */
+    public function testSlug($title, $slug)
     {
-        $this->article->setTitle("Graf  Prono   blaest    zum \n Zapfenstreich");
+        $this->article->setTitle($title);
 
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
-    }
-
-    public function testSlugDoesNotStrartOrEndWithAnUnderscore()
-    {
-        $this->article->setTitle("  Graf  Prono   blaest    zum \n Zapfenstreich  ");
-
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
-    }
-
-    public function testSlugDoesNotHaveAnyNonWordCharacters()
-    {
-        $this->article->setTitle('Graf Prono? Blaest zum Zapfenstreich!');
-
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_Blaest_zum_Zapfenstreich');
+        $this->assertSame($this->article->getSlug(), $slug);
     }
 }
