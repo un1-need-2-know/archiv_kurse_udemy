@@ -24,10 +24,10 @@ class ArticleTest extends TestCase
     public function titleProvider()
     {
         return [
-            ['Graf Prono blaest zum Zapfenstreich', 'Graf_Prono_blaest_zum_Zapfenstreich'],
-            ["Graf  Prono   blaest    zum \n Zapfenstreich", 'Graf_Prono_blaest_zum_Zapfenstreich'],
-            ["  Graf  Prono   blaest    zum \n Zapfenstreich  ", 'Graf_Prono_blaest_zum_Zapfenstreich'],
-            ['Graf Prono? Blaest zum Zapfenstreich!', 'Graf_Prono_Blaest_zum_Zapfenstreich'],
+            'Replace Spaces with Underscores' => ['Graf Prono blaest zum Zapfenstreich', 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            'Replace multiple Spaces with only one Underscore' => ["Graf  Prono   blaest    zum \n Zapfenstreich", 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            'Remove Underscore @ the start/end' => ["  Graf  Prono   blaest    zum \n Zapfenstreich  ", 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            'Remove non word characters' => ['Graf Prono? Blaest zum Zapfenstreich!', 'Graf_Prono_Blaest_zum_Zapfenstreich'],
         ];
     }
 
