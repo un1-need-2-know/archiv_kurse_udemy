@@ -23,37 +23,38 @@ class ArticleTest extends TestCase
 
     public function testSlug($title, $slug)
     {
-            $this->article->setTitle($title);
-    
-            $this->assertSame($this->article->getSlug(), $slug);
+        $this->article->setTitle($title);
+
+        $this->assertSame($this->article->getSlug(), $slug);
     }
 
-/*
-    public function testInSlugSpacesAreReplacedWithUnderscores()
-    {
-        $this->article->setTitle('Graf Prono blaest zum Zapfenstreich');
+    /*
+        public function testInSlugSpacesAreReplacedWithUnderscores()
+        {
+            $this->article->setTitle('Graf Prono blaest zum Zapfenstreich');
 
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
-    }
+            $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
+        }
 
-    public function testInSlugSpacesAreReplacedWithSingleUnderscores()
-    {
-        $this->article->setTitle("Graf  Prono   blaest    zum \n Zapfenstreich");
+        public function testInSlugSpacesAreReplacedWithSingleUnderscores()
+        {
+            $this->article->setTitle("Graf  Prono   blaest    zum \n Zapfenstreich");
 
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
-    }
+            $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
+        }
 
-    public function testSlugDoesNotStrartOrEndWithAnUnderscore()
-    {
-        $this->article->setTitle("  Graf  Prono   blaest    zum \n Zapfenstreich  ");
+        public function testSlugDoesNotStrartOrEndWithAnUnderscore()
+        {
+            $this->article->setTitle("  Graf  Prono   blaest    zum \n Zapfenstreich  ");
 
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
-    }
+            $this->assertSame($this->article->getSlug(), 'Graf_Prono_blaest_zum_Zapfenstreich');
+        }
 
-    public function testSlugDoesNotHaveAnyNonWordCharacters()
-    {
-        $this->article->setTitle('Graf Prono? Blaest zum Zapfenstreich!');
+        public function testSlugDoesNotHaveAnyNonWordCharacters()
+        {
+            $this->article->setTitle('Graf Prono? Blaest zum Zapfenstreich!');
 
-        $this->assertSame($this->article->getSlug(), 'Graf_Prono_Blaest_zum_Zapfenstreich');
-    }*/
+            $this->assertSame($this->article->getSlug(), 'Graf_Prono_Blaest_zum_Zapfenstreich');
+        }
+    */
 }
