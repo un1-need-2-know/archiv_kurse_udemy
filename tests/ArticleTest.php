@@ -21,6 +21,14 @@ class ArticleTest extends TestCase
         $this->assertSame($this->article->getSlug(), '');
     }
 
+    public function testSlug($title, $slug)
+    {
+            $this->article->setTitle($title);
+    
+            $this->assertSame($this->article->getSlug(), $slug);
+    }
+
+/*
     public function testInSlugSpacesAreReplacedWithUnderscores()
     {
         $this->article->setTitle('Graf Prono blaest zum Zapfenstreich');
@@ -47,5 +55,5 @@ class ArticleTest extends TestCase
         $this->article->setTitle('Graf Prono? Blaest zum Zapfenstreich!');
 
         $this->assertSame($this->article->getSlug(), 'Graf_Prono_Blaest_zum_Zapfenstreich');
-    }
+    }*/
 }
