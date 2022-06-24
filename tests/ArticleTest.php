@@ -21,6 +21,19 @@ class ArticleTest extends TestCase
         $this->assertSame($this->article->getSlug(), '');
     }
 
+    public function titleProvider()
+    {
+        return [
+            ['Graf Prono blaest zum Zapfenstreich', 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            ["Graf  Prono   blaest    zum \n Zapfenstreich", 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            ["  Graf  Prono   blaest    zum \n Zapfenstreich  ", 'Graf_Prono_blaest_zum_Zapfenstreich'],
+            ['Graf Prono? Blaest zum Zapfenstreich!', 'Graf_Prono_Blaest_zum_Zapfenstreich'],
+        ];
+    }
+
+    /**
+     * @dataProvider titleProvider
+     */
     public function testSlug($title, $slug)
     {
         $this->article->setTitle($title);
