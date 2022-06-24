@@ -10,4 +10,11 @@ class ItemTest extends TestCase
 
         $this->assertNotEmpty($item->getDescription());
     }
+
+    public function testIDisAnInt()
+    {
+        $item = new Item;
+
+        $this->assertIsInt($item->getID());
+    }
 }
