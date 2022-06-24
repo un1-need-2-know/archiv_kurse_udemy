@@ -1,5 +1,6 @@
 <?php
 
+use LDAP\Result;
 use PHPUnit\Framework\TestCase;
 
 class ItemTest extends TestCase
@@ -16,5 +17,19 @@ class ItemTest extends TestCase
         $item = new ItemChild();
 
         $this->assertIsInt($item->getID());
+    }
+
+    public function testTokenisAString()
+    {
+        $item = new Item();
+
+        $reflector = new ReflectionClass(Item::class);
+
+        $method = $reflector->getMethod('getToken');
+        $method->setAccessible(true);
+
+        $result = $method->invoke($item);
+
+        $this->assertIsString($result);
     }
 }
