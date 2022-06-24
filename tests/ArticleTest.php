@@ -44,7 +44,7 @@ class ArticleTest extends TestCase
 
     public function testSlugDoesNotHaveAnyNonWordCharacters()
     {
-        $this->article->setTitle("Graf Prono? Blaest zum Zapfenstreich!");
+        $this->article->setTitle('Graf Prono? Blaest zum Zapfenstreich!');
 
         $this->assertSame($this->article->getSlug(), 'Graf_Prono_Blaest_zum_Zapfenstreich');
     }
