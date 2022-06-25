@@ -31,4 +31,18 @@ class ItemTest extends TestCase
 
         $this->assertIsString($result);
     }
+
+    public function testPrefixedTokenStartsWithPrefix()
+    {
+        $item = new Item();
+
+        $reflector = new ReflectionClass(Item::class);
+
+        $method = $reflector->getMethod('getPrefixedToken');
+        $method->setAccessible(true);
+
+        $result = $method->invokeArgs($item, ['boobs']);
+
+        $this->assertStringStartsWith('boobs', $result);
+    }
 }
