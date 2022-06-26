@@ -13,6 +13,6 @@ abstract class AbstractPerson
 
     public function getNameAndTitle()
     {
-        return $this->getTitle() . ' ' . $this->surename;
+        return $this->getTitle().' '.$this->surename;
     }
 }
