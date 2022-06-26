@@ -8,6 +8,13 @@ class ProductTest extends TestCase
     {
         $product = new Product;
 
-        $this->assertIsInt($product->product_id);
+        $reflector = new ReflectionClass(Product::class);
+
+        $property = $reflector->getProperty('product_id');
+        $property->setAccessible(true);
+
+        $value = $property->getValue($product);
+
+        $this->assertIsInt($value);
     }
 }
