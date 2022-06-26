@@ -16,7 +16,7 @@ class AbstractPersonTest extends TestCase
         $mock = $this->getMockBuilder(AbstractPerson::class)
                         ->setConstructorArgs(['Green'])
                         ->getMockForAbstractClass();
-        
+
         $mock->method('getTitle')
             ->willReturn('Dr.');
 
