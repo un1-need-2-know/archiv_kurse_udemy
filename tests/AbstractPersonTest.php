@@ -10,4 +10,16 @@ class AbstractPersonTest extends TestCase
 
         $this->assertEquals('Dr. Green', $person->getNameAndTitle());
     }
+
+    public function testNameAndTitleIncludesValuesFromGetTitle()
+    {
+        $mock = $this->getMockBuilder(AbstractPerson::class)
+                        ->setConstructorArgs(['Green'])
+                        ->getMockForAbstractClass();
+        
+        $mock->method('getTitle')
+            ->willReturn('Dr.');
+
+        $this->assertEquals('Dr. Green', $mock->getNameAndTitle());
+    }
 }
