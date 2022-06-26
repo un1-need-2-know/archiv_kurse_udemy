@@ -6,7 +6,7 @@ class ProductTest extends TestCase
 {
     public function testIDIsAnInteger()
     {
-        $product = new Product;
+        $product = new Product();
 
         $reflector = new ReflectionClass(Product::class);
 
