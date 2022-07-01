@@ -1,6 +1,5 @@
 <?php
 
-use phpDocumentor\Reflection\DocBlock\Tags\InvalidTag;
 use PHPUnit\Framework\TestCase;
 
 class MailerTest extends TestCase
@@ -14,6 +13,6 @@ class MailerTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        Mailer::send('','Boobs');
+        Mailer::send('', 'Boobs');
     }
 }
