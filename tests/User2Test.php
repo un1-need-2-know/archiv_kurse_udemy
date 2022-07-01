@@ -8,7 +8,7 @@ class User2Test extends TestCase
     {
         $user = new User2('penis@pump.it.up');
 
-        $mailer = new Mailer;
+        $mailer = $this->createMock(Mailer::class);
 
         $user->setMailer($mailer);
 
