@@ -8,6 +8,10 @@ class User2Test extends TestCase
     {
         $user = new User2('penis@pump.it.up');
 
+        $mailer = new Mailer;
+
+        $user->setMailer($mailer);
+
         $this->assertTrue($user->notify('Boobs'));
     }
 }
