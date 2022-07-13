@@ -29,7 +29,12 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "kubawerlos/composer-smaller-lock": true,
+            "composer/package-versions-deprecated": true,
+            "symfony/flex": true
+        }
     },
     "autoload": {
         "psr-4": {
@@ -66,5 +71,8 @@
             "allow-contrib": false,
             "require": "5.4.*"
         }
+    },
+    "require-dev": {
+        "kubawerlos/composer-smaller-lock": "^1.0"
     }
 }
