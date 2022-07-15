@@ -9,6 +9,10 @@ class User2Test extends TestCase
         $user = new User2('penis@pump.it.up');
 
         $mailer = $this->createMock(Mailer::class);
+        
+        $mailer->expects($this->once())
+        ->method('send')
+        ->willReturn(true);
 
         $user->setMailer($mailer);
 
