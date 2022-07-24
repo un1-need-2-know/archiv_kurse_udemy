@@ -23,7 +23,7 @@ class User2Test extends TestCase
             ->once()
             ->with($user->email, 'Boobs')
             ->andReturn(true);
-        
+
         $user->setMailer($mock);
 
         $this->assertTrue($user->notify('Boobs'));
