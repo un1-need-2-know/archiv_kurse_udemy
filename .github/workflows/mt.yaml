@@ -1,0 +1,65 @@
+# yamllint disable rule:line-length
+# yamllint disable rule:braces
+
+name: Mutation Testing
+
+on:
+  pull_request:
+  push:
+    branches:
+      - "**"
+
+env:
+  MIN_MSI: 71.35
+  MIN_COVERED_MSI: 86.78
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.operating-system }}
+
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-version: ['8.0']
+        coverage-driver: [pcov]
+
+    name: Mutation testing on ${{ matrix.operating-system }} with PHP ${{ matrix.php-version }}, using ${{ matrix.coverage-driver }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: ${{ matrix.coverage-driver }}
+          tools: composer:v2.1
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('composer.*') }}
+          restore-keys: |
+            composer-${{ runner.os }}-${{ matrix.php-version }}-
+            composer-${{ runner.os }}-
+            composer-
+
+      - name: Install dependencies
+        run: |
+          composer update --no-interaction --prefer-dist --no-progress
+
+      - name: Collect coverage report
+        run: |
+          php vendor/phpunit/phpunit/phpunit --coverage-xml=build/logs/coverage-xml --log-junit=build/logs/junit.xml
+
+      - name: Run Infection
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+        run: |
+          php bin/infection -j2 --skip-initial-tests --min-msi=$MIN_MSI --min-covered-msi=$MIN_COVERED_MSI --coverage=build/logs --log-verbosity=none --no-interaction --no-progress
