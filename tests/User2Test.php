@@ -4,13 +4,27 @@ use PHPUnit\Framework\TestCase;
 
 class User2Test extends TestCase
 {
+    public function tearDown(): void
+    {
+        Mockery::close();
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testNotifyReturnsTrue()
     {
         $user = new User2('penis@pump.it.up');
 
-        $mailer = $this->createMock(Mailer::class);
+        $mock = Mockery::mock('alias:Mailer');
 
-        $user->setMailer($mailer);
+        $mock->shouldReceive('send')
+            ->once()
+            ->with($user->email, 'Boobs')
+            ->andReturn(true);
+
+        $user->setMailer($mock);
 
         $this->assertTrue($user->notify('Boobs'));
     }
