@@ -5,9 +5,9 @@
         "infection/infection": "^0.26.13"
     },
     "autoload": {
-        "psr-4": {
-            "": "src/"
-        }
+        "classmap": [
+            "src/"
+        ]
     },
     "config": {
         "allow-plugins": {
